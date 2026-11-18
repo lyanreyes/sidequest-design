@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>SideQuest promo video</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root { --bg:#0A090D; --panel:#100E13; --card:#151219; --cardp:#1F162B; --border:#221E28; --bs:#2E2936; --lime:#9CFF27; --onl:#0A090D; --purple:#743BD2; --pt:#A985F7; --ps:#2A1E3A; --text:#F5F3F7; --muted:#8E8896; }
+* { box-sizing:border-box; margin:0; }
+html,body { width:1920px; height:1080px; overflow:hidden; background:var(--bg); color:var(--text); font-family:"DM Sans",sans-serif; }
+#stage { position:relative; width:1920px; height:1080px; overflow:hidden;
+  background: radial-gradient(900px 600px at 15% 20%, rgba(116,59,210,.18), transparent 70%), radial-gradient(800px 600px at 90% 90%, rgba(156,255,39,.08), transparent 70%), var(--bg); }
+.scene { position:absolute; inset:0; opacity:0; }
+.abs { position:absolute; will-change:transform,opacity; }
+.h1 { font:800 92px/1.02 Manrope,sans-serif; letter-spacing:-.03em; }
+.h2 { font:800 68px/1.05 Manrope,sans-serif; letter-spacing:-.025em; }
+.eyebrow { font:700 22px/1 "DM Sans"; letter-spacing:.14em; text-transform:uppercase; color:var(--pt); }
+.lead { font:500 30px/1.4 "DM Sans"; color:var(--muted); }
+.lime { color:var(--lime); } .pt { color:var(--pt); }
+.logo { width:132px; height:132px; border-radius:36px; background:var(--lime); color:var(--onl); display:grid; place-items:center; font:800 76px Manrope; }
+.phone { width:372px; border-radius:44px; overflow:hidden; box-shadow:0 0 0 9px #1C1B22, 0 40px 100px rgba(0,0,0,.6); background:var(--bg); }
+.phone img { display:block; width:100%; }
+.card { background:var(--panel); border:1.5px solid var(--border); border-radius:22px; padding:28px 32px; }
+.pill { display:inline-flex; align-items:center; gap:10px; padding:12px 22px; border-radius:999px; border:1.5px solid var(--bs); background:var(--card); font:600 24px "DM Sans"; }
+.chip { display:inline-flex; align-items:center; height:52px; padding:0 24px; border-radius:999px; border:1.5px solid var(--bs); background:var(--card); font:600 24px "DM Sans"; color:var(--muted); }
+.chip.on { background:var(--lime); border-color:var(--lime); color:var(--onl); }
+.btn { display:flex; align-items:center; justify-content:center; height:84px; border-radius:18px; background:var(--lime); color:var(--onl); font:700 30px "DM Sans"; }
+.btn.outline { background:transparent; border:2px solid var(--bs); color:var(--text); }
+.stat { display:flex; flex-direction:column; gap:4px; padding:22px 26px; border-radius:18px; background:var(--card); border:1.5px solid var(--border); }
+.stat b { font:800 48px Manrope; font-variant-numeric:tabular-nums; }
+.stat span { font:500 22px "DM Sans"; color:var(--muted); }
+.map { border-radius:28px; overflow:hidden; border:2px solid var(--bs); box-shadow:0 30px 80px rgba(0,0,0,.5); }
+.map img { display:block; width:100%; }
+.banner { display:flex; gap:20px; align-items:center; padding:24px 28px; border-radius:22px; background:var(--cardp); border:2px solid var(--lime); box-shadow:0 24px 60px rgba(0,0,0,.55); }
+.banner .bell { width:64px; height:64px; border-radius:16px; background:var(--lime); display:grid; place-items:center; flex:none; }
+.banner small { display:block; font:700 18px "DM Sans"; letter-spacing:.12em; text-transform:uppercase; color:var(--lime); }
+.banner b { font:700 28px "DM Sans"; }
+.bubble { padding:20px 26px; border-radius:24px; font:500 26px/1.35 "DM Sans"; max-width:520px; }
+.bubble.them { background:var(--card); border:1.5px solid var(--border); }
+.bubble.me { background:var(--purple); }
+.cal { display:grid; grid-template-columns:repeat(7, 64px); gap:8px; }
+.cal span { height:58px; border-radius:14px; display:grid; place-items:center; background:var(--card); border:1.5px solid var(--border); font:700 24px "DM Sans"; }
+.cal span.on { background:var(--lime); color:var(--onl); border-color:var(--lime); }
+.cal em { font:600 18px "DM Sans"; color:var(--muted); text-align:center; font-style:normal; }
+.field { height:84px; border-radius:18px; background:#141217; border:2px solid var(--pt); display:flex; align-items:center; padding:0 28px; font:500 30px "DM Sans"; }
+.caret { display:inline-block; width:3px; height:38px; background:var(--pt); margin-left:4px; }
+.step { display:flex; gap:22px; align-items:center; font:600 30px "DM Sans"; }
+.step i { width:56px; height:56px; border-radius:50%; display:grid; place-items:center; background:var(--card); border:2px solid var(--bs); font:800 24px Manrope; font-style:normal; flex:none; }
+.step.done i { background:var(--lime); border-color:var(--lime); color:var(--onl); }
+.step.held i { border-color:var(--pt); color:var(--pt); }
+.star { font-size:96px; line-height:1; color:var(--bs); }
+.star.on { color:var(--lime); }
+.strike { position:absolute; left:-6px; right:-6px; top:50%; height:6px; background:#F87171; border-radius:3px; transform-origin:left center; }
+.dot { width:30px; height:30px; border-radius:50%; background:var(--purple); border:5px solid #fff; box-shadow:0 0 0 14px rgba(169,133,247,.3); }
+.ring { width:60px; height:60px; border-radius:50%; border:4px solid var(--lime); }
+.toggle { display:flex; gap:6px; padding:8px; border-radius:22px; background:var(--panel); border:1.5px solid var(--border); width:560px; }
+.toggle span { flex:1; height:72px; border-radius:16px; display:grid; place-items:center; font:700 28px "DM Sans"; color:var(--muted); }
+.qrbox { width:360px; border-radius:24px; overflow:hidden; border:2px solid var(--bs); }
+.qrbox img { display:block; width:100%; }
+.spinner { width:72px; height:72px; border-radius:50%; border:8px solid var(--bs); border-top-color:var(--lime); }
+.check { width:96px; height:96px; border-radius:50%; background:var(--lime); display:grid; place-items:center; }
+.sheet { width:620px; border-radius:30px; background:var(--panel); border:2px solid var(--border); padding:36px; display:flex; flex-direction:column; gap:22px; box-shadow:0 30px 80px rgba(0,0,0,.6); }
+.row { display:flex; justify-content:space-between; align-items:center; font:500 26px "DM Sans"; }
+.row b { font:700 26px "DM Sans"; }
+.sim { padding:14px 18px; border-radius:14px; background:var(--ps); font:500 20px "DM Sans"; }
+</style></head>
+<body><div id="stage">
+
+<!-- 1 · Intro -->
+<section class="scene" id="s1">
+  <div class="abs logo" id="s1-logo" style="left:894px;top:290px">S</div>
+  <div class="abs h1" id="s1-name" style="left:0;width:1920px;top:470px;text-align:center">SideQuest</div>
+  <div class="abs" style="left:0;width:1920px;top:600px;text-align:center;font:800 56px Manrope;letter-spacing:-.02em">
+    <span id="s1-w1">Find gigs.</span> <span id="s1-w2" class="lime">Earn fast.</span> <span id="s1-w3" class="pt">Near you.</span>
+  </div>
+</section>
+
+<!-- 2 · Problem -->
+<section class="scene" id="s2">
+  <div class="abs eyebrow" id="s2-eb" style="left:160px;top:160px">The problem</div>
+  <div class="abs card" id="s2-a" style="left:160px;top:240px;width:760px"><div class="h2" style="font-size:52px">Need extra money between classes?</div><p class="lead" style="margin-top:14px">Part-time jobs want fixed shifts.</p></div>
+  <div class="abs card" id="s2-b" style="left:1000px;top:240px;width:760px"><div class="h2" style="font-size:52px">Need help with a quick errand?</div><p class="lead" style="margin-top:14px">You post in a group chat and hope.</p></div>
+  <div class="abs" id="s2-c" style="left:160px;top:620px;display:flex;gap:28px">
+    <span class="pill" style="position:relative;font-size:34px;padding:22px 34px">No tracking<i class="strike" id="s2-x1"></i></span>
+    <span class="pill" style="position:relative;font-size:34px;padding:22px 34px">No reviews<i class="strike" id="s2-x2"></i></span>
+    <span class="pill" style="position:relative;font-size:34px;padding:22px 34px">No payment protection<i class="strike" id="s2-x3"></i></span>
+  </div>
+</section>
+
+<!-- 3 · Meet SideQuest -->
+<section class="scene" id="s3">
+  <div class="abs" id="s3-text" style="left:160px;top:330px;width:820px;display:flex;flex-direction:column;gap:26px">
+    <span class="eyebrow">Meet SideQuest</span>
+    <div class="h1">Small tasks.<br><span class="lime">Nearby people.</span><br>Fair pay.</div>
+    <p class="lead">A gig app for students and neighbors in Batangas.</p>
+  </div>
+  <div class="abs phone" id="s3-phone" style="left:1240px;top:120px"><img src="../assets/screen-discover.png" alt=""></div>
+</section>
+
+<!-- 4 · Gigs on a map -->
+<section class="scene" id="s4">
+  <div class="abs" id="s4-text" style="left:140px;top:170px;width:640px;display:flex;flex-direction:column;gap:24px">
+    <span class="eyebrow">Gigs around you</span>
+    <div class="h2">Every gig near you, on a real map</div>
+    <div id="s4-chips" style="display:flex;gap:12px;flex-wrap:wrap"><span class="chip">1 km</span><span class="chip on">Within 3 km</span><span class="chip">5 km</span></div>
+  </div>
+  <div class="abs" id="s4-stats" style="left:140px;top:640px;display:flex;gap:16px">
+    <div class="stat"><b id="s4-km">0.0 km</b><span>Distance</span></div>
+    <div class="stat"><b id="s4-ride">~0 min</b><span>By motorbike</span></div>
+    <div class="stat"><b id="s4-walk">~0 min</b><span>Walking</span></div>
+  </div>
+  <div class="abs map" id="s4-map" style="left:860px;top:110px;width:820px"><img src="../assets/map-gigs.png" alt=""></div>
+  <div class="abs ring" id="s4-ring" style="left:1112px;top:420px"></div>
+</section>
+
+<!-- 5 · Alerts -->
+<section class="scene" id="s5">
+  <div class="abs" id="s5-text" style="left:160px;top:250px;width:720px;display:flex;flex-direction:column;gap:26px">
+    <span class="eyebrow">Nearby alerts</span>
+    <div class="h2">Get told the moment a gig is posted near you</div>
+    <div style="display:flex;gap:12px" id="s5-chips"><span class="chip">1 km</span><span class="chip">2 km</span><span class="chip on">3 km</span><span class="chip">4 km</span><span class="chip">5 km</span></div>
+  </div>
+  <div class="abs phone" id="s5-phone" style="left:1180px;top:130px"><img src="../assets/screen-discover.png" alt=""></div>
+  <div class="abs banner" id="s5-banner" style="left:1040px;top:150px;width:660px">
+    <span class="bell"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0A090D" stroke-width="2.2" stroke-linecap="round"><path d="M6 9a6 6 0 1 1 12 0c0 6 3 7 3 7H3s3-1 3-7M10 20h4"/></svg></span>
+    <span><small>New gig · 0.8 km away</small><b>Pick up art supplies · ₱450</b></span>
+  </div>
+</section>
+
+<!-- 6 · Post a task -->
+<section class="scene" id="s6">
+  <div class="abs" id="s6-text" style="left:140px;top:120px;display:flex;flex-direction:column;gap:18px">
+    <span class="eyebrow">Post a task</span>
+    <div class="h2">Done in under <span class="lime" id="s6-timer">2 minutes</span></div>
+  </div>
+  <div class="abs field" id="s6-title" style="left:140px;top:330px;width:700px"><span id="s6-typed"></span><span class="caret" id="s6-caret"></span></div>
+  <div class="abs map" id="s6-map" style="left:140px;top:450px;width:420px"><img src="../assets/map-post.png" alt=""></div>
+  <div class="abs card" id="s6-cal" style="left:600px;top:450px;padding:22px">
+    <div style="font:700 24px Manrope;margin-bottom:12px">November 2026</div>
+    <div class="cal" id="s6-days"></div>
+  </div>
+  <div class="abs" id="s6-pay" style="left:140px;top:930px;display:flex;gap:12px;align-items:center">
+    <span style="font:600 24px 'DM Sans';color:var(--muted);margin-right:8px">Suggested pay</span>
+    <span class="chip">₱150</span><span class="chip" id="s6-paypick">₱200</span><span class="chip">₱240</span>
+  </div>
+  <div class="abs phone" id="s6-phone" style="left:1320px;top:120px"><img src="../assets/screen-post.png" alt=""></div>
+</section>
+
+<!-- 7 · GCash held -->
+<section class="scene" id="s7">
+  <div class="abs" id="s7-text" style="left:140px;top:150px;width:700px;display:flex;flex-direction:column;gap:22px">
+    <span class="eyebrow">GCash payments</span>
+    <div class="h2">The money is held until the job is done</div>
+  </div>
+  <div class="abs" id="s7-steps" style="left:140px;top:540px;display:flex;flex-direction:column;gap:26px">
+    <div class="step" id="s7-st1"><i>1</i>Client pays with a GCash QR</div>
+    <div class="step" id="s7-st2"><i>2</i>SideQuest holds the payment</div>
+    <div class="step" id="s7-st3"><i>3</i>Worker does the task</div>
+    <div class="step" id="s7-st4"><i>✓</i>Client confirms, payment released</div>
+  </div>
+  <div class="abs phone" id="s7-phone" style="left:940px;top:120px"><img src="../assets/screen-qr.png" alt=""></div>
+  <div class="abs sheet" id="s7-sheet" style="left:1240px;top:240px">
+    <div class="eyebrow">GCash · Simulation</div>
+    <div class="row"><span style="color:var(--muted)">Pay to</span><b>SideQuest (held)</b></div>
+    <div class="row"><span style="color:var(--muted)">Task</span><b>Deliver printed thesis</b></div>
+    <div class="row" style="border-top:1.5px solid var(--border);padding-top:20px"><span>Amount</span><b class="lime" style="font:800 40px Manrope">₱420.00</b></div>
+    <div style="display:grid;place-items:center;height:120px;position:relative">
+      <div class="spinner abs" id="s7-spin" style="left:calc(50% - 36px);top:24px"></div>
+      <div class="check abs" id="s7-check" style="left:calc(50% - 48px);top:12px"><svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#0A090D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7"/></svg></div>
+    </div>
+    <div class="btn" id="s7-btn">Pay ₱420</div>
+    <div class="sim">Demo only: no real money moves</div>
+  </div>
+</section>
+
+<!-- 8 · Track & chat -->
+<section class="scene" id="s8">
+  <div class="abs" id="s8-text" style="left:140px;top:120px;display:flex;flex-direction:column;gap:18px;width:640px">
+    <span class="eyebrow">Track and chat</span>
+    <div class="h2">Watch them on the way</div>
+  </div>
+  <div class="abs map" id="s8-map" style="left:140px;top:380px;width:600px"><img src="../assets/map-track-empty.png" alt=""></div>
+  <div class="abs" id="s8-dot" style="left:0;top:0;display:flex;flex-direction:column;align-items:center;gap:8px"><span style="background:#151219;border:1.5px solid #2E2936;border-radius:10px;padding:4px 12px;font:700 20px 'DM Sans'">Bea Santos</span><span class="dot"></span></div>
+  <div class="abs stat" id="s8-left" style="left:780px;top:380px"><b id="s8-km">1.0 km</b><span>Left to go · Bea Santos</span></div>
+  <div class="abs" id="s8-chat" style="left:1120px;top:300px;width:640px;display:flex;flex-direction:column;gap:22px">
+    <div class="bubble them" id="s8-b1">Hi Bea, are you still on schedule?</div>
+    <div class="bubble me" id="s8-b2" style="align-self:flex-end">Yes! Picked everything up. There in 12 minutes.</div>
+    <div class="bubble them" id="s8-b3">Perfect, I'm at the main gate.</div>
+  </div>
+</section>
+
+<!-- 9 · Confirm & review -->
+<section class="scene" id="s9">
+  <div class="abs" id="s9-text" style="left:0;width:1920px;top:150px;text-align:center;display:flex;flex-direction:column;gap:20px;align-items:center">
+    <span class="eyebrow">Confirm and rate</span>
+    <div class="h2">Job done. Payment released.</div>
+  </div>
+  <div class="abs btn" id="s9-btn" style="left:660px;top:380px;width:600px">Confirm task completion</div>
+  <div class="abs" id="s9-stars" style="left:0;width:1920px;top:520px;display:flex;justify-content:center;gap:20px">
+    <span class="star" id="s9-st0">★</span><span class="star" id="s9-st1">★</span><span class="star" id="s9-st2">★</span><span class="star" id="s9-st3">★</span><span class="star" id="s9-st4">★</span>
+  </div>
+  <div class="abs" id="s9-earn" style="left:0;width:1920px;top:690px;text-align:center">
+    <div style="font:800 120px Manrope;font-variant-numeric:tabular-nums" class="lime" id="s9-amt">+₱0</div>
+    <p class="lead">added to Bea's earnings · saved in order history</p>
+  </div>
+</section>
+
+<!-- 10 · Two roles -->
+<section class="scene" id="s10">
+  <div class="abs" id="s10-text" style="left:160px;top:260px;width:760px;display:flex;flex-direction:column;gap:28px">
+    <span class="eyebrow">One account, two roles</span>
+    <div class="h2">Earn when you're free. Get help when you're busy.</div>
+    <div class="toggle"><span id="s10-w">Worker</span><span id="s10-c">Client</span></div>
+  </div>
+  <div class="abs phone" id="s10-p1" style="left:1240px;top:120px"><img src="../assets/screen-discover.png" alt=""></div>
+  <div class="abs phone" id="s10-p2" style="left:1240px;top:120px"><img src="../assets/screen-client.png" alt=""></div>
+</section>
+
+<!-- 11 · Outro -->
+<section class="scene" id="s11">
+  <div class="abs" id="s11-left" style="left:160px;top:180px;width:980px;display:flex;flex-direction:column;gap:30px">
+    <div style="display:flex;align-items:center;gap:26px"><div class="logo" style="width:104px;height:104px;font-size:60px;border-radius:28px">S</div><div class="h1" style="font-size:84px">SideQuest</div></div>
+    <div style="font:800 54px Manrope;letter-spacing:-.02em">Find gigs. <span class="lime">Earn fast.</span> <span class="pt">Near you.</span></div>
+    <span class="pill" style="width:fit-content"><i style="width:12px;height:12px;border-radius:50%;background:var(--lime)"></i>Pilot launching in Batangas · November 2026</span>
+    <p class="lead">Starting at FAITH Colleges, Tanauan City</p>
+    <p style="font:500 24px 'DM Sans';color:var(--muted);margin-top:30px">Group 5 · BSCS 3A<br>Lyan Reyes · Karlrich Dereck Alvarez · Marc Lawrence Espinosa · Leslie Ivan Pantoja</p>
+  </div>
+  <div class="abs" id="s11-qr" style="left:1320px;top:180px;display:flex;flex-direction:column;gap:18px;align-items:center">
+    <div class="qrbox"><img src="../assets/qr.png" alt=""></div>
+    <span style="font:700 26px 'DM Sans'">Scan to download for Android</span>
+  </div>
+</section>
+
+</div>
+<script>
+// ---------- deterministic timeline: window.render(t) draws the frame at time t (seconds) ----------
+const $ = (id) => document.getElementById(id);
+const clamp = (x) => Math.max(0, Math.min(1, x));
+const ease = (x) => 1 - Math.pow(1 - clamp(x), 3);
+const easeIO = (x) => { x = clamp(x); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
+const back = (x) => { x = clamp(x); const c = 1.6; return 1 + (c + 1) * Math.pow(x - 1, 3) + c * Math.pow(x - 1, 2); };
+const p = (t, a, b) => clamp((t - a) / (b - a));
+function set(el, { o, x = 0, y = 0, s = 1, r = 0 } = {}) {
+  if (typeof el === "string") el = $(el);
+  if (o !== undefined) el.style.opacity = o;
+  el.style.transform = `translate(${x}px, ${y}px) scale(${s}) rotate(${r}deg)`;
+}
+// enter from below with fade
+const rise = (el, t, a, d = 0.7, dist = 60) => set(el, { o: ease(p(t, a, a + d)), y: (1 - ease(p(t, a, a + d))) * dist });
+
+const SCENES = [
+  ["s1", 0, 6], ["s2", 6, 16], ["s3", 16, 24], ["s4", 24, 38], ["s5", 38, 48], ["s6", 48, 64],
+  ["s7", 64, 79], ["s8", 79, 93], ["s9", 93, 103], ["s10", 103, 111], ["s11", 111, 120],
+];
+const DURATION = 120;
+
+// calendar cells (built once)
+(() => {
+  const days = $("s6-days");
+  ["S", "M", "T", "W", "T", "F", "S"].forEach((d) => { const e = document.createElement("em"); e.textContent = d; days.appendChild(e); });
+  for (let i = 0; i < 0; i++) days.appendChild(document.createElement("i"));
+  for (let d = 15; d <= 28; d++) { const s = document.createElement("span"); s.textContent = d; s.id = "cal" + d; days.appendChild(s); }
+})();
+
+const DRAW = {
+  s1(t) {
+    set("s1-logo", { o: ease(p(t, .2, .8)), s: back(p(t, .2, 1.0)), r: (1 - ease(p(t, .2, 1))) * -20 });
+    rise("s1-name", t, 1.0, .8);
+    rise("s1-w1", t, 2.2, .5, 30); rise("s1-w2", t, 2.8, .5, 30); rise("s1-w3", t, 3.4, .5, 30);
+  },
+  s2(t) {
+    rise("s2-eb", t, .2, .5, 20);
+    rise("s2-a", t, .5, .8); rise("s2-b", t, 2.2, .8);
+    rise("s2-c", t, 4.2, .7);
+    ["s2-x1", "s2-x2", "s2-x3"].forEach((id, i) => { const k = easeIO(p(t, 5.6 + i * .6, 6.1 + i * .6)); $(id).style.transform = `scaleX(${k})`; });
+  },
+  s3(t) {
+    rise("s3-text", t, .3, .9);
+    set("s3-phone", { o: ease(p(t, .8, 1.6)), y: (1 - ease(p(t, .8, 2.0))) * 500 + Math.sin(t * 1.4) * 8, r: (1 - ease(p(t, .8, 2))) * 6 });
+  },
+  s4(t) {
+    rise("s4-text", t, .2, .8);
+    set("s4-map", { o: ease(p(t, .6, 1.4)), s: .92 + .08 * ease(p(t, .6, 1.6)) });
+    const pulse = (t * 0.9) % 1; set("s4-ring", { o: (1 - pulse) * ease(p(t, 1.6, 2)), s: .6 + pulse * 1.8 });
+    rise("s4-stats", t, 3.5, .7);
+    const k = easeIO(p(t, 4, 6.5));
+    $("s4-km").textContent = (1.2 * k).toFixed(1) + " km"; $("s4-ride").textContent = "~" + Math.round(6 * k) + " min"; $("s4-walk").textContent = "~" + Math.round(21 * k) + " min";
+    const chips = $("s4-chips").children; const pick = t > 8.5 ? 2 : t > 7.5 ? 0 : 1;
+    [...chips].forEach((c, i) => c.classList.toggle("on", i === pick));
+  },
+  s5(t) {
+    rise("s5-text", t, .2, .8);
+    set("s5-phone", { o: ease(p(t, .5, 1.2)), y: (1 - ease(p(t, .5, 1.4))) * 300 });
+    const chips = $("s5-chips").children; const r = t < 2 ? 0 : t < 2.6 ? 1 : 2;
+    [...chips].forEach((c, i) => c.classList.toggle("on", i === r));
+    set("s5-banner", { o: ease(p(t, 3.4, 3.8)), y: (1 - back(p(t, 3.4, 4.2))) * -160, s: 1 + Math.max(0, Math.sin((t - 4.2) * 6)) * .02 * (t > 4.2 && t < 5 ? 1 : 0) });
+  },
+  s6(t) {
+    rise("s6-text", t, .2, .7);
+    set("s6-phone", { o: ease(p(t, .4, 1.2)) * (t > 13 ? 1 : .55), x: (1 - ease(p(t, .4, 1.2))) * 200 });
+    rise("s6-title", t, 1.0, .5, 30);
+    const full = "Deliver printed thesis"; const n = Math.floor(full.length * p(t, 1.4, 3.6));
+    $("s6-typed").textContent = full.slice(0, n); $("s6-caret").style.opacity = Math.floor(t * 2.5) % 2 ? 1 : .2;
+    rise("s6-map", t, 3.8, .6); rise("s6-cal", t, 5.2, .6);
+    for (let d = 15; d <= 28; d++) $("cal" + d).classList.toggle("on", d === (t > 7.6 ? 18 : t > 7 ? 17 : 16));
+    rise("s6-pay", t, 8.6, .6, 30);
+    $("s6-paypick").classList.toggle("on", t > 10);
+    const secs = Math.min(105, Math.round(105 * p(t, 1, 11)));
+    $("s6-timer").textContent = t < 1 ? "2 minutes" : `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, "0")}`;
+  },
+  s7(t) {
+    rise("s7-text", t, .2, .7);
+    set("s7-phone", { o: ease(p(t, .4, 1.1)), y: (1 - ease(p(t, .4, 1.3))) * 300 });
+    set("s7-sheet", { o: ease(p(t, 2.6, 3.2)), y: (1 - ease(p(t, 2.6, 3.4))) * 200 });
+    rise("s7-steps", t, 1.2, .6, 30);
+    const pressed = t > 5 && t < 5.25; set("s7-btn", { s: pressed ? .96 : 1 });
+    const spinning = t >= 5.2 && t < 7.4;
+    set("s7-spin", { o: spinning ? 1 : 0, r: (t - 5.2) * 420 });
+    set("s7-check", { o: t >= 7.4 ? 1 : 0, s: back(p(t, 7.4, 8)) });
+    const st = (id, cls) => { const e = $(id); e.className = "step " + cls; };
+    st("s7-st1", t > 7.4 ? "done" : ""); st("s7-st2", t > 8.4 ? "held" : ""); st("s7-st3", ""); st("s7-st4", "");
+  },
+  s8(t) {
+    rise("s8-text", t, .2, .7);
+    set("s8-map", { o: ease(p(t, .5, 1.2)), s: .95 + .05 * ease(p(t, .5, 1.4)) });
+    // worker moves along the dashed line on the map (image coords 800x840 → shown at 600 wide, scale .75)
+    const k = easeIO(p(t, 1.6, 11));
+    const from = [126, 50], to = [290, 278]; // dashed line on map-track-empty.png as shown at 600px
+    const x = 140 + from[0] + (to[0] - from[0]) * k - 70, y = 380 + from[1] + (to[1] - from[1]) * k - 62;
+    set("s8-dot", { o: ease(p(t, 1.4, 1.8)), x, y });
+    rise("s8-left", t, 1.6, .6, 30);
+    $("s8-km").textContent = Math.max(0.1, 1.0 * (1 - k)).toFixed(1) + " km";
+    rise("s8-b1", t, 3, .5, 30); rise("s8-b2", t, 5, .5, 30); rise("s8-b3", t, 7.5, .5, 30);
+  },
+  s9(t) {
+    rise("s9-text", t, .2, .7);
+    const pr = t > 1.6 && t < 1.85; set("s9-btn", { o: ease(p(t, .6, 1.1)) * (t > 3 ? 1 - ease(p(t, 3, 3.4)) * .6 : 1), s: pr ? .95 : 1 });
+    for (let i = 0; i < 5; i++) { const a = 2.6 + i * .35; const e = $("s9-st" + i); e.classList.toggle("on", t > a); set(e, { o: ease(p(t, 2.2, 2.6)), s: t > a ? back(p(t, a, a + .4)) : 1 }); }
+    set("s9-earn", { o: ease(p(t, 4.6, 5.2)) });
+    $("s9-amt").textContent = "+₱" + Math.round(420 * easeIO(p(t, 4.8, 6.6)));
+  },
+  s10(t) {
+    rise("s10-text", t, .2, .8);
+    const client = (t > 3.2 && t < 6.4);
+    $("s10-w").style.background = client ? "transparent" : "var(--ps)"; $("s10-w").style.color = client ? "var(--muted)" : "var(--text)";
+    $("s10-c").style.background = client ? "var(--ps)" : "transparent"; $("s10-c").style.color = client ? "var(--text)" : "var(--muted)";
+    const k1 = t < 3.2 ? 1 : t < 6.4 ? 1 - ease(p(t, 3.2, 3.6)) : ease(p(t, 6.4, 6.8));
+    set("s10-p1", { o: ease(p(t, .5, 1.2)) * k1, y: (1 - ease(p(t, .5, 1.4))) * 300 });
+    set("s10-p2", { o: t < 3.2 ? 0 : t < 6.4 ? ease(p(t, 3.2, 3.6)) : 1 - ease(p(t, 6.4, 6.8)) });
+  },
+  s11(t) {
+    rise("s11-left", t, .2, .9);
+    set("s11-qr", { o: ease(p(t, 1, 1.8)), s: .9 + .1 * back(p(t, 1, 1.8)) });
+  },
+};
+
+window.render = function (t) {
+  for (const [id, a, b] of SCENES) {
+    const el = $(id);
+    const fade = Math.min(ease(p(t, a, a + .45)), 1 - ease(p(t, b - .45, b)));
+    const on = t >= a - .01 && t <= b + .01;
+    el.style.opacity = on ? (a === 0 ? Math.min(1, 1 - ease(p(t, b - .45, b))) : fade) : 0;
+    el.style.display = on ? "block" : "none";
+    if (on) DRAW[id](t - a);
+  }
+};
+window.DURATION = DURATION;
+render(0);
+</script>
+</body></html>
